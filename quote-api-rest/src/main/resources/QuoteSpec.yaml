@@ -1,0 +1,97 @@
+openapi: 3.0.3
+info:
+  title: Quote API - OpenAPI 3.0
+  description: |
+    API for managing quotes
+  version: 1.0.0
+servers:
+  - url: /api/v1
+paths:
+  /quotes:
+    get:
+      tags:
+        - quote
+      summary: Get all quotes
+      description: Retrieve all quotes
+      operationId: getAllQuotes
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Quote'
+        '400':
+          description: Invalid request
+
+    post:
+      tags:
+        - quote
+      summary: Add a new quote
+      description: Add a new quote
+      operationId: addQuote
+      requestBody:
+        description: Create a new quote
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quote'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: Invalid request
+
+  /quotes/{id}:
+    get:
+      tags:
+        - quote
+      summary: Get a quote by ID
+      description: Retrieve a quote by ID
+      operationId: getQuoteById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          example: '5eb17aaeb69dc744b4e72a4a'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+        '404':
+          description: Not Found
+        '400':
+          description: Invalid request
+
+components:
+  schemas:
+    Quote:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: '5eb17aaeb69dc744b4e72a4a'
+        quoteText:
+          type: string
+          example: 'The first rule of any technology...'
+        quoteAuthor:
+          type: string
+          example: 'Bill Gates'
+        quoteGenre:
+          type: string
+          example: 'business'
+        __v:
+          type: integer
+          example: 0
