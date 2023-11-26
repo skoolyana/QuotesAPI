@@ -3,6 +3,7 @@ package com.tui.api.rest.controller;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
 import org.springframework.data.domain.PageRequest;
@@ -50,32 +51,39 @@ public class QuoteController implements QuotesApi {
 		}
 
 	@Override
-	public ResponseEntity<PagedGetAllQuotesResponse> getAllQuotes(@Valid Integer page, @Valid Integer size) {
+    public ResponseEntity<PagedGetAllQuotesResponse> getAllQuotes(@Valid Integer page, @Valid Integer size) {
+        Pageable pageable = PageRequest.of(page, size);
 
-		Pageable pageable = PageRequest.of(page, size);
-		
-		Map<String,Object> quotesMap =getQuoteUseCase.getAllQuotes(page, size);
+        CompletableFuture<Map<String, Object>> quotesFuture = CompletableFuture.supplyAsync(() ->
+                getQuoteUseCase.getAllQuotes(page, size));
 
-		List<com.tui.domain.model.Quote> quotes = (List<com.tui.domain.model.Quote>) quotesMap.get("result");
-	    long totalElements = (long) quotesMap.get("totalElements");
-	    int totalPages = (int) quotesMap.get("pages");
-		
+        try {
+            Map<String, Object> quotesMap = quotesFuture.get();
 
-	    PagedGetAllQuotesResponse response = new PagedGetAllQuotesResponse()
-	            .content(quotes.stream().map(quoteMapper::mapToApiModel).collect(Collectors.toList()));
+            List<com.tui.domain.model.Quote> quotes = (List<com.tui.domain.model.Quote>) quotesMap.get("result");
+            long totalElements = (long) quotesMap.get("totalElements");
+            int totalPages = (int) quotesMap.get("pages");
 
-	    PagedGetAllQuotesResponsePageable responsePageable = new PagedGetAllQuotesResponsePageable()
-	    		.offset((int) pageable.getOffset())
-	            .pageNumber(pageable.getPageNumber())
-	            .pageSize(pageable.getPageSize())
-	            .paged(pageable.isPaged())
-	            .unpaged(pageable.isUnpaged());
-	            
-	    response.setTotalElements((int) totalElements);
-	    response.totalPages(totalPages);
-	    response.pageable(responsePageable);
+            PagedGetAllQuotesResponse response = new PagedGetAllQuotesResponse()
+                    .content(quotes.stream().map(quoteMapper::mapToApiModel).collect(Collectors.toList()));
 
-	    return ResponseEntity.ok(response);
-	}
+            PagedGetAllQuotesResponsePageable responsePageable = new PagedGetAllQuotesResponsePageable()
+                    .offset((int) pageable.getOffset())
+                    .pageNumber(pageable.getPageNumber())
+                    .pageSize(pageable.getPageSize())
+                    .paged(pageable.isPaged())
+                    .unpaged(pageable.isUnpaged());
+
+            response.setTotalElements((int) totalElements);
+            response.totalPages(totalPages);
+            response.pageable(responsePageable);
+
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            // Handle exceptions
+            e.printStackTrace();
+            return ResponseEntity.status(500).build();
+        }
+    }
 	
 }
