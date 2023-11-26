@@ -14,15 +14,26 @@ paths:
       summary: Get all quotes
       description: Retrieve all quotes
       operationId: getAllQuotes
+      parameters:
+        - name: page
+          in: query
+          description: Page number default 1
+          schema:
+            type: integer
+            default: 1
+        - name: size
+          in: query
+          description: Number of items per page default 10
+          schema:
+            type: integer
+            default: 10
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Quote'
+                $ref: '#/components/schemas/PagedGetAllQuotesResponse'
         '400':
           description: Invalid request
 
@@ -123,3 +134,29 @@ components:
         __v:
           type: integer
           example: 0
+    PagedGetAllQuotesResponse:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quote'
+        pageable:
+          type: object
+          properties:
+            sort:
+              type: object
+            offset:
+              type: integer
+            pageNumber:
+              type: integer
+            pageSize:
+              type: integer
+            paged:
+              type: boolean
+            unpaged:
+              type: boolean
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
