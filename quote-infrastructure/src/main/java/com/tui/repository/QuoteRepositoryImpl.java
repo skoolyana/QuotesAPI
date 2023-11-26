@@ -2,6 +2,7 @@ package com.tui.repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
@@ -20,11 +21,13 @@ public class QuoteRepositoryImpl implements QuoteRepository {
     private final QuoteEntityMapper quoteEntityMapper;
 	
 	
-	@Override
-	public List<Quote> findByQuoteAuthor(String author) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public List<Quote> findByAuthor(String author) {
+        List<QuoteEntity> entities = mongoQuoteRepository.findByQuoteAuthor(author);
+        return entities.stream()
+                .map(quoteEntityMapper::mapToDomainModel)
+                .collect(Collectors.toList());
+    }
 
 	@Override
 	public Optional<Quote> findById(String id) {

@@ -1,5 +1,6 @@
 package com.tui.application.usecase.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Component;
@@ -19,8 +20,15 @@ public class GetQuoteUseCaseImpl implements GetQuoteUseCase {
 
 	@Override
 	public Optional<Quote> getQuoteById(String id) {
-		// TODO Auto-generated method stub
+
 		return quoteService.getQuoteById(id);
+	}
+
+
+	@Override
+	public List<Quote> getQuoteByAuthor(String author) {
+
+		return quoteService.getQuoteByAuthor(author);
 	}
 
 }

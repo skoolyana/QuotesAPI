@@ -7,7 +7,7 @@ import com.tui.domain.model.Quote;
 
 public interface QuoteRepository{
   
-	 List<Quote> findByQuoteAuthor(String author);
+	 List<Quote> findByAuthor(String author);
 	 
 	 Optional<Quote> findById(String id);
 	 

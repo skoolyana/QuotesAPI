@@ -74,6 +74,34 @@ paths:
           description: Not Found
         '400':
           description: Invalid request
+          
+  /quotes/author/{author}:
+    get:
+      tags:
+        - quote
+      summary: Get quotes by author
+      description: Retrieve quotes by a specific author
+      operationId: getQuotesByAuthor
+      parameters:
+        - name: author
+          in: path
+          required: true
+          schema:
+            type: string
+          example: 'Bill Gates'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Quote'
+        '404':
+          description: Not Found
+        '400':
+          description: Invalid request
 
 components:
   schemas:

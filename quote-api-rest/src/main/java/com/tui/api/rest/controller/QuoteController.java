@@ -2,6 +2,8 @@ package com.tui.api.rest.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import com.tui.api.QuotesApi;
@@ -37,4 +39,17 @@ public class QuoteController implements QuotesApi {
 
 	}
 
-}
+	@Override
+	public ResponseEntity<List<Quote>> getQuotesByAuthor(String author) {
+		
+		List<com.tui.domain.model.Quote> quoteDomain =getQuoteUseCase.getQuoteByAuthor(author);
+
+		 List<Quote> quotes = quoteDomain.stream()
+		            .map(quoteMapper::mapToApiModel)
+		            .collect(Collectors.toList());
+
+		    return ResponseEntity.ok(quotes);
+		}
+	}
+
+

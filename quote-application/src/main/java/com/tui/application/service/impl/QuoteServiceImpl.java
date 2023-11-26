@@ -1,5 +1,6 @@
 package com.tui.application.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -23,6 +24,13 @@ public class QuoteServiceImpl implements QuoteService {
 	public Optional<Quote> getQuoteById(String id) {
 		
 		return  quoteRepository.findById(id);
+	}
+
+
+	@Override
+	public List<Quote> getQuoteByAuthor(String author) {
+		// TODO Auto-generated method stub
+		return  quoteRepository.findByAuthor(author);
 	}
 	
 }
