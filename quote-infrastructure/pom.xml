@@ -32,6 +32,16 @@
 				<artifactId>mapstruct-processor</artifactId>
 				<scope>provided</scope>
 			</dependency>
+			
+					<dependency>
+			<groupId>com.tui</groupId>
+			<artifactId>quote-domain</artifactId>
+			<version>${project.version}</version>
+			<type>test-jar</type>
+			<classifier>tests</classifier>
+			<scope>test</scope>
+		</dependency>
+
 
 
 		<dependency>

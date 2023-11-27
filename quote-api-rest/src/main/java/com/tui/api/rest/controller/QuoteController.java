@@ -23,7 +23,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class QuoteController implements QuotesApi {
 	
-	
 	private final GetQuoteUseCase getQuoteUseCase;
 	
 	private final QuoteMapper quoteMapper;
@@ -85,5 +84,4 @@ public class QuoteController implements QuotesApi {
             return ResponseEntity.status(500).build();
         }
     }
-	
 }

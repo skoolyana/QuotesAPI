@@ -1,25 +1,27 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.tui</groupId>
-    <artifactId>SearchQuote</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>quote-api-rest</artifactId>
-  
-  <packaging>jar</packaging> 
-  
-  	<dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.tui</groupId>
+		<artifactId>SearchQuote</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>quote-api-rest</artifactId>
+
+	<packaging>jar</packaging>
+
+	<dependencies>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency> 
+		</dependency>
 
 		<dependency>
 			<groupId>io.swagger.core.v3</groupId>
@@ -38,22 +40,31 @@
 			<groupId>javax.annotation</groupId>
 			<artifactId>javax.annotation-api</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.tui</groupId>
 			<artifactId>quote-application</artifactId>
 		</dependency>
-		
-			<dependency>
-				<groupId>org.mapstruct</groupId>
-				<artifactId>mapstruct</artifactId>
-			</dependency>
 
-			<dependency>
-				<groupId>org.mapstruct</groupId>
-				<artifactId>mapstruct-processor</artifactId>
-				<scope>provided</scope>
-			</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.tui</groupId>
+			<artifactId>quote-domain</artifactId>
+			<version>${project.version}</version>
+			<type>test-jar</type>
+			<classifier>tests</classifier>
+			<scope>test</scope>
+		</dependency>
 
 
 		<dependency>
@@ -64,7 +75,7 @@
 
 	</dependencies>
 
-<build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -105,23 +116,22 @@
 					</execution>
 				</executions>
 			</plugin>
-			
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version> <!-- Use the latest version -->
-            <configuration>
-                <source>17</source> <!-- Update to the Java version you are using, e.g., 8, 11, 17 -->
-                <target>17</target> <!-- Update to the Java version you are using, e.g., 8, 11, 17 -->
-            </configuration>
-        </plugin>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version> <!-- Use the latest version -->
+				<configuration>
+					<source>17</source> <!-- Update to the Java version you are
+					using, e.g., 8, 11, 17 -->
+					<target>17</target> <!-- Update to the Java version you are
+					using, e.g., 8, 11, 17 -->
+				</configuration>
+			</plugin>
 
 
 		</plugins>
 	</build>
 
 
-  
-  
 </project>
