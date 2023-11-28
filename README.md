@@ -31,11 +31,11 @@
 
 ## Getting Started
 
-- ** ** To get started with the SearchQuote application, follow these steps:
+-  To get started with the SearchQuote application, follow these steps:
 
 **Clone the repository:**
 
-- ** ** git clone 
+- git clone 
   https://github.com/skoolyana/QuotesAPI.git
 
 
@@ -52,33 +52,33 @@
 
 ## Usage
 
-- ** **The application exposes RESTful API endpoints for searching and retrieving quotes. 
+- The application exposes RESTful API endpoints for searching and retrieving quotes. 
 
-- ** ** You can use tools like curl, Postman, or any other API testing tool to interact with the endpoints.
+- You can use tools like curl, Postman, or any other API testing tool to interact with the endpoints.
 
-- ** ** You may find the postman collection for testing in : /QuotesAPI/quote-boot/src/test/resources/QuotesAPI.postman_collection.json   
+- You may find the postman collection for testing in : /QuotesAPI/quote-boot/src/test/resources/QuotesAPI.postman_collection.json   
 
 
 ## Configuration
 
-- ** ** The application uses the following configuration:
+- The application uses the following configuration:
 
 ##### MongoDB Connection:
 
-- ** ** MongoDB host: localhost
+- MongoDB host: localhost
 
-- ** ** MongoDB port: 27017
+- MongoDB port: 27017
 
-- ** ** MongoDB database name: can be found in /QuotesAPI/quote-infrastructure/src/main/resources/application.properties
+- MongoDB database name: can be found in /QuotesAPI/quote-infrastructure/src/main/resources/application.properties
 
 ##### Local Server Configuration:
 
-- ** ** Server port: 8080
+- Server port: 8080
 
 
 ## RunningTests
    
-- ** ** To run unit tests for your project, execute the following Maven command in your project directory:
+- To run unit tests for your project, execute the following Maven command in your project directory:
 
 - ** Run Maven Command: ** mvn test
 
