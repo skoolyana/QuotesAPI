@@ -1,8 +1,8 @@
 # QuotesAPI Spring Boot Application
 
-- ** ** The QuotesAPI Spring Boot Application is a Spring Boot Application that provides API endpoints for searching and retrieving quotes. 
+-  The QuotesAPI Spring Boot Application is a Spring Boot Application that provides API endpoints for searching and retrieving quotes. 
 
-- ** ** It uses MongoDB as a data store and includes functionalities to search by author, retrieve quotes by ID, and get paginated lists of all quotes.
+-  It uses MongoDB as a data store and includes functionalities to search by author, retrieve quotes by ID, and get paginated lists of all quotes.
 
 ## Table of Contents
 
