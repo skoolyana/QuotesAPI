@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "8d50d330-9b66-43d8-ab8f-9cf41ef79f1e",
+		"name": "QuotesAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetQuoteByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/quotes/5eb17aaeb69dc744b4e73586",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"quotes",
+						"5eb17aaeb69dc744b4e73586"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "External API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthorQuotes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllQuotes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
