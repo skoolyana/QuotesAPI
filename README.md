@@ -80,7 +80,7 @@
    
 - To run unit tests for your project, execute the following Maven command in your project directory:
 
-- ** Run Maven Command: ** mvn test
+- Run Maven Command: mvn test
 
 
 
