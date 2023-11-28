@@ -1,6 +1,8 @@
 # QuotesAPI Spring Boot Application
 
-The QuotesAPI Spring Boot Application is a Spring Boot Application that provides API endpoints for searching and retrieving quotes. It uses MongoDB as a data store and includes functionalities to search by author, retrieve quotes by ID, and get paginated lists of all quotes.
+- ** ** The QuotesAPI Spring Boot Application is a Spring Boot Application that provides API endpoints for searching and retrieving quotes. 
+
+- ** ** It uses MongoDB as a data store and includes functionalities to search by author, retrieve quotes by ID, and get paginated lists of all quotes.
 
 ## Table of Contents
 
@@ -14,7 +16,9 @@ The QuotesAPI Spring Boot Application is a Spring Boot Application that provides
 ## Features
 
 - **Search by Author:** Retrieve quotes by a specific author.
+
 - **Get Quote by ID:** Fetch a quote using its unique identifier.
+
 - **Paginated Quote List:** Get a paginated list of all quotes.
 
 ## Technologies Used
@@ -27,55 +31,56 @@ The QuotesAPI Spring Boot Application is a Spring Boot Application that provides
 
 ## Getting Started
 
-To get started with the SearchQuote application, follow these steps:
+- ** ** To get started with the SearchQuote application, follow these steps:
 
-1. **Clone the repository:**
-   git clone 
+**Clone the repository:**
+
+- ** ** git clone 
   https://github.com/skoolyana/QuotesAPI.git
 
 
-2. **Build:**
+**Build:**
    
-   cd QuotesAPI
+   - **Change Directory:** cd QuotesAPI
    
-   mvn clean install
+   - **Run Maven Command:** mvn clean install
    
-3. **Run:**
+**Run:**
 	
-   Run Application.java as Java/SpringBoot Application in /QuotesAPI/quote-boot/src/main/java/com/tui or run the command : mvn spring-boot:run
+   - **Run Spring Boot Application:** Run Application.java as Java/SpringBoot Application in /QuotesAPI/quote-boot/src/main/java/com/tui or run the command : mvn spring-boot:run
    	   	   
 
 ## Usage
 
-The application exposes RESTful API endpoints for searching and retrieving quotes. You can use tools like curl, 
+- ** **The application exposes RESTful API endpoints for searching and retrieving quotes. 
 
-Postman, or any other API testing tool to interact with the endpoints.
+- ** ** You can use tools like curl, Postman, or any other API testing tool to interact with the endpoints.
 
-You may find the postman collection for testing in : /QuotesAPI/quote-boot/src/test/resources/QuotesAPI.postman_collection.json   
+- ** ** You may find the postman collection for testing in : /QuotesAPI/quote-boot/src/test/resources/QuotesAPI.postman_collection.json   
 
 
 ## Configuration
 
-The application uses the following configuration:
+- ** ** The application uses the following configuration:
 
 ##### MongoDB Connection:
 
-   MongoDB host: localhost
+- ** ** MongoDB host: localhost
 
-   MongoDB port: 27017
+- ** ** MongoDB port: 27017
 
-   MongoDB database name: can be found in /QuotesAPI/quote-infrastructure/src/main/resources/application.properties
+- ** ** MongoDB database name: can be found in /QuotesAPI/quote-infrastructure/src/main/resources/application.properties
 
 ##### Local Server Configuration:
 
-   Server port: 8080
+- ** ** Server port: 8080
 
 
 ## RunningTests
    
-   To run unit tests for your project, execute the following Maven command in your project directory:
+- ** ** To run unit tests for your project, execute the following Maven command in your project directory:
 
-   mvn test
+- ** Run Maven Command: ** mvn test
 
 
 
